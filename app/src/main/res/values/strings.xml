@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Coffee App</string>
+    <string name="coffeenest">CoffeeNest</string>
+    <string name="nora">Nora</string>
+    <string name="search_coffies">Search coffies...</string>
+</resources>
