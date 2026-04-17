@@ -7,8 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.coffeeapp.R
 import com.example.coffeeapp.databinding.ActivityMainBinding
+import com.example.coffeeapp.uilover.coffeeapp.ViewModel.MainViewModel
+import com.example.coffeeapp.uilover.coffeeapp.adapter.CategoryAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,6 +24,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initCategory()
+        initBanner()
+
+    }
+    private fun initBanner() {
+        binding.progressBarBanner.visibility= View.VISIBLE
+        viewModel.loadBanner().observeForever {
+            Glide.with(this@MainActivity)
+                .load(it[0].url)
+                .into(binding.banner)
+            binding.progressBarBanner.visibility= View.GONE
+        }
+        viewModel.loadBanner()
+
+
     }
 
     private fun initCategory() {
@@ -29,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             binding.categoryView.layoutManager=LinearLayoutManager(
                 this@MainActivity, LinearLayoutManager.HORIZONTAL, false
             )
+            binding.categoryView.adapter= CategoryAdapter(it)
+            binding.progressBarCategory.visibility= View.GONE
+        }
+        viewModel.loadCategory()
+
 
 
     }

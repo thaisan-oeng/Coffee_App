@@ -11,10 +11,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffeeapp.R
 import com.example.coffeeapp.databinding.ViewholderCategoryBinding
-import com.example.coffeeapp.uilover.coffeeapp.domain.CategoryDomain
+import com.example.coffeeapp.uilover.coffeeapp.domain.CategoryModel
 
 
-class CategoryAdapter(val items: MutableList<CategoryDomain>):
+class CategoryAdapter(val items: MutableList<CategoryModel>):
     RecyclerView.Adapter<CategoryAdapter.Viewholder>() {
     private  lateinit var context: Context
     private var selectedPosition = -1
@@ -53,10 +53,10 @@ class CategoryAdapter(val items: MutableList<CategoryDomain>):
 
         }
         if (selectedPosition == position) {
-            holder.binding.titleCat.setBackgroundColor(R.drawable.brown_full_corner)
+            holder.binding.titleCat.setBackgroundResource(R.drawable.brown_full_corner)
             holder.binding.titleCat.setTextColor(context.resources.getColor(R.color.white))
         } else {
-            holder.binding.titleCat.setBackgroundColor(R.drawable.cream_full_corner1)
+            holder.binding.titleCat.setBackgroundResource(R.drawable.cream_full_corner1)
             holder.binding.titleCat.setTextColor(context.resources.getColor(R.color.darkBrown))
         }
     }

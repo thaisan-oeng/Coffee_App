@@ -1,6 +1,6 @@
 package com.example.coffeeapp.uilover.coffeeapp.domain
 
-data class CategoryDomain(
+data class CategoryModel(
     val title: String="",
     val id: Int = 0
 )
