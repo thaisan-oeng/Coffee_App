@@ -1,11 +1,13 @@
 package com.example.coffeeapp.uilover.coffeeapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.coffeeapp.databinding.ViewholderItemBinding
+import com.example.coffeeapp.uilover.coffeeapp.activities.DetailActivity
 import com.example.coffeeapp.uilover.coffeeapp.domain.ItemsModel
 
 class ItemsAdapter(val items: MutableList<ItemsModel>):
@@ -34,6 +36,11 @@ RecyclerView.Adapter<ItemsAdapter.Viewholder>() {
         Glide.with(context)
             .load(items[position].picUrl[0])
             .into(holder.binding.pic)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = items.size
