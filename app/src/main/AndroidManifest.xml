@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeApp">
         <activity
+            android:name=".uilover.coffeeapp.activities.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".uilover.coffeeapp.activities.DetailActivity"
             android:exported="false" />
         <activity
